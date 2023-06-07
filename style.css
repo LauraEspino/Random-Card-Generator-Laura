@@ -1,0 +1,11 @@
+html{
+    background-color: darkgreen;
+}
+
+.card{
+    display: flex;
+    margin:auto;
+    width: 150px;
+    height: 600px;
+    background-color: white;
+}

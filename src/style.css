@@ -1,1 +1,35 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-color: darkgreen;
+}
+
+.card {
+  display: flex;
+  margin: auto;
+  margin-top: 60px;
+  height: 300px;
+  width: 180px;
+  background-color: white;
+  border-radius: 10px;
+}
+.palo {
+  margin-bottom: 0px;
+}
+
+.palo,
+.paloInferior {
+  display: flex;
+  font-size: 60px;
+  height: 80px;
+}
+
+.paloInferior {
+  transform: rotate(180deg);
+  margin: 0px;
+}
+.numero {
+  font-size: 100px;
+  margin-bottom: none;
+  margin: auto;
+}
