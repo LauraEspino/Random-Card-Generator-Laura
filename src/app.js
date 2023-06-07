@@ -7,53 +7,38 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
-  const palos = ["♦", "♥", "♠", "♣"];
-  const numCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
-  let randomPalos = palos[Math.floor(Math.random() * palos.length)];
+  function generarRandomCard() {
+    // Declaracion de arrays
+    const palos = ["♦", "♥", "♠", "♣"];
+    const numCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+    // Valores Random
+    let randomPalos = palos[Math.floor(Math.random() * palos.length)];
+    let randomNumCartas =
+      numCartas[Math.floor(Math.random() * numCartas.length)];
 
-  if (randomPalos === "♦" || randomPalos === "♥") {
+    // Obteniendo elementos de la carta
     let elemRandomPalos = document.querySelector(".palo");
-    elemRandomPalos.style.color = "red";
-    elemRandomPalos.innerHTML = randomPalos;
-
     let elemRandomPalosInf = document.querySelector(".paloInferior");
-    elemRandomPalosInf.style.color = "red";
-    elemRandomPalosInf.innerHTML = randomPalos;
-  } else {
-    let elemRandomPalos = document.querySelector(".palo");
+    let elemRandomNum = document.querySelector(".numero");
+    // Dibujo las cartas
     elemRandomPalos.innerHTML = randomPalos;
-
-    let elemRandomPalosInf = document.querySelector(".paloInferior");
+    elemRandomNum.innerHTML = randomNumCartas;
     elemRandomPalosInf.innerHTML = randomPalos;
+
+    if (randomPalos === "♦" || randomPalos === "♥") {
+      elemRandomPalos.style.color = "red";
+      elemRandomPalosInf.style.color = "red";
+    } else {
+      elemRandomPalos.style.color = "black";
+      elemRandomPalosInf.style.color = "black";
+    }
   }
+  generarRandomCard();
+  document
+    .querySelector(".button")
+    .addEventListener("click", generarRandomCard);
 
-  let randomNumCartas = numCartas[Math.floor(Math.random() * numCartas.length)];
-  let elemRandomNum = document.querySelector(".numero");
-  elemRandomNum.innerHTML = randomNumCartas;
+  setInterval(function() {
+    generarRandomCard();
+  }, 10000);
 };
-document.querySelector(".button").addEventListener("click", nuevaCarta);
-function nuevaCarta() {
-  const palos = ["♦", "♥", "♠", "♣"];
-  const numCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
-  let randomPalos = palos[Math.floor(Math.random() * palos.length)];
-
-  if (randomPalos === "♦" || randomPalos === "♥") {
-    let elemRandomPalos = document.querySelector(".palo");
-    elemRandomPalos.style.color = "red";
-    elemRandomPalos.innerHTML = randomPalos;
-
-    let elemRandomPalosInf = document.querySelector(".paloInferior");
-    elemRandomPalosInf.style.color = "red";
-    elemRandomPalosInf.innerHTML = randomPalos;
-  } else {
-    let elemRandomPalos = document.querySelector(".palo");
-    elemRandomPalos.innerHTML = randomPalos;
-
-    let elemRandomPalosInf = document.querySelector(".paloInferior");
-    elemRandomPalosInf.innerHTML = randomPalos;
-  }
-
-  let randomNumCartas = numCartas[Math.floor(Math.random() * numCartas.length)];
-  let elemRandomNum = document.querySelector(".numero");
-  elemRandomNum.innerHTML = randomNumCartas;
-}
