@@ -7,6 +7,9 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
+  let inputAltura = document.querySelector("#inputH");
+  let inputAncho = document.querySelector("#inputW");
+
   function generarRandomCard() {
     // Declaracion de arrays
     const palos = ["♦", "♥", "♠", "♣"];
@@ -20,6 +23,7 @@ window.onload = function() {
     let elemRandomPalos = document.querySelector(".palo");
     let elemRandomPalosInf = document.querySelector(".paloInferior");
     let elemRandomNum = document.querySelector(".numero");
+
     // Dibujo las cartas
     elemRandomPalos.innerHTML = randomPalos;
     elemRandomNum.innerHTML = randomNumCartas;
@@ -41,4 +45,20 @@ window.onload = function() {
   setInterval(function() {
     generarRandomCard();
   }, 10000);
+
+  // let cambioAltura = document
+  //   .querySelector(".inputH")
+  //   .value.
+
+  inputAltura.addEventListener("change", cambioH);
+  function cambioH() {
+    document.querySelector(".card").style.height = inputAltura.value + "px";
+    console.log(inputAltura.value);
+  }
+
+  inputAncho.addEventListener("change", cambioW);
+  function cambioW() {
+    document.querySelector(".card").style.width = inputAncho.value + "px";
+    console.log(inputAncho.value);
+  }
 };
